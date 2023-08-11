@@ -26,32 +26,23 @@ class Test(unittest.TestCase):
 
     def test_DungeonHasOuterWall(self):
         d = src.dungeon.Dungeon(3,3)
-        self.assertEqual(d.grid[0][0], 1, 'should be a wall')
-        self.assertEqual(d.grid[0][1], 1, 'should be a wall')
-        self.assertEqual(d.grid[0][2], 1, 'should be a wall')
-        self.assertEqual(d.grid[1][0], 1, 'should be a wall')
-        self.assertEqual(d.grid[1][1], 0, 'should be floor')
-        self.assertEqual(d.grid[1][2], 1, 'should be a wall')
-        self.assertEqual(d.grid[2][0], 1, 'should be a wall')
-        self.assertEqual(d.grid[2][1], 1, 'should be a wall')
-        self.assertEqual(d.grid[2][2], 1, 'should be a wall')
+        self.assertEqual(d.grid[0][0], src.dungeon.Cell.Border, 'should be a border')
+        self.assertEqual(d.grid[0][1], src.dungeon.Cell.Border, 'should be a border')
+        self.assertEqual(d.grid[0][2], src.dungeon.Cell.Border, 'should be a border')
+        self.assertEqual(d.grid[1][0], src.dungeon.Cell.Border, 'should be a border')
+        self.assertEqual(d.grid[1][1], src.dungeon.Cell.Open, 'should be floor')
+        self.assertEqual(d.grid[1][2], src.dungeon.Cell.Border, 'should be a border')
+        self.assertEqual(d.grid[2][0], src.dungeon.Cell.Border, 'should be a border')
+        self.assertEqual(d.grid[2][1], src.dungeon.Cell.Border, 'should be a border')
+        self.assertEqual(d.grid[2][2], src.dungeon.Cell.Border, 'should be a border')
     
     def test_DungeonHasOuterWallbigger(self):
         d = src.dungeon.Dungeon(5,5)
-        self.assertEqual(d.grid[0][0], 1, 'should be a wall')
-        self.assertEqual(d.grid[1][1], 0, 'should be a wall')
-        self.assertEqual(d.grid[0][2], 1, 'should be a wall')
-        self.assertEqual(d.grid[2][0], 1, 'should be a wall')
-        self.assertEqual(d.grid[2][2], 0, 'should be floor')
-        self.assertEqual(d.grid[4][0], 1, 'should be a wall')
-        self.assertEqual(d.grid[0][4], 1, 'should be a wall')
-        self.assertEqual(d.grid[3][3], 0, 'should be a wall')
-        self.assertEqual(d.grid[4][4], 1, 'should be a wall')
-
-        
-        
-    
-        
+        self.assertEqual(d.grid[0][0], src.dungeon.Cell.Border, 'should be a border')
+        self.assertEqual(d.grid[1][1], src.dungeon.Cell.Open, 'should be a floor')
+        self.assertEqual(d.grid[2][2], src.dungeon.Cell.Open, 'should be floor')
+        self.assertEqual(d.grid[3][3], src.dungeon.Cell.Open, 'should be a floor')
+        self.assertEqual(d.grid[4][4], src.dungeon.Cell.Border, 'should be a border')
 
 
 if __name__ == "__main__":
