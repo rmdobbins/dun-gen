@@ -3,12 +3,7 @@ Created on Oct 2, 2015
 
 @author: rmdobbins
 """
-from enum import Enum
-
-
-class Cell(Enum):
-    Open = 0
-    Border = 1
+from src.cell import Cell
 
 
 class Dungeon(object):
@@ -16,7 +11,7 @@ class Dungeon(object):
     class docs
     """
 
-    def wall_perimeter(self, grid):
+    def set_perimeter_wall(self, grid):
         # top
         n = 0
         for _ in grid[0]:
@@ -40,7 +35,7 @@ class Dungeon(object):
         self.height = height
         self.width = width
         self.grid = [[Cell.Open for _ in range(height)] for _ in range(width)]
-        self.wall_perimeter(self.grid)
+        self.set_perimeter_wall(self.grid)
 
     def print(self):
         for row in self.grid:
